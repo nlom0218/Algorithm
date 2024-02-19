@@ -10,6 +10,8 @@ let deps = 1;
 
 while (true) {
   let isEnd = false;
+    
+  if (!queue[deps + 1]) queue[deps + 1] = [];
 
   for (let i = 0; i < queue[deps].length; i++) {
     const [x, y] = queue[deps][i];
@@ -18,8 +20,6 @@ while (true) {
       isEnd = true;
       break;
     }
-
-    if (!queue[deps + 1]) queue[deps + 1] = [];
 
     if (x + 1 < N && map[x + 1][y] === '1') {
       map[x + 1][y] = '2';
