@@ -2,7 +2,6 @@ function solution(begin, target, words) {
     if(!words.includes(target)) return 0;
     
     const queue = [[begin]];
-    const visited = []
     let deps = 0;
     let isEnd = false;
     
@@ -22,13 +21,11 @@ function solution(begin, target, words) {
             }
             
             const candidates = words.filter((word, index) => {
-                if(visited[index]) return false;
                 
                 let diffCount = 0;
                 for (let j = 0; j < value.length; j++) {
                     if (value[j] !== word[j]) diffCount += 1;
                 }          
-                if(diffCount === 1) visited[index] = true
                 
                 return diffCount === 1
             })
